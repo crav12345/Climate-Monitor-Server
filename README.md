@@ -16,5 +16,5 @@ This project is part of a distributed system:
 
 ### Related Repositories
 
-- **[ESP32-Climate-Monitor](https://github.com/crav12345/ESP32-Climate-Monitor)**
-- **[ChrisRavosa.com](https://github.com/crav12345/ChrisRavosa.com)**
+- **[crav12345/ESP32-Climate-Monitor](https://github.com/crav12345/ESP32-Climate-Monitor)**
+- **[crav12345/ChrisRavosa.com](https://github.com/crav12345/ChrisRavosa.com)**
