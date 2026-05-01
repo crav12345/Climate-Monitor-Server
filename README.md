@@ -10,11 +10,11 @@ This server ingests environmental data (temperature, humidity, etc.) from an emb
 
 This project is part of a distributed system:
 
-- **Firmware (ESP32)** → collects climate data and sends it to this server  
+- **ESP32 Firmware** → collects climate data and sends it to this server
 - **Server (this repo)** → receives data and broadcasts updates  
-- **Frontend (website)** → displays live climate data  
+- **[ChrisRavosa.com](https://www.chrisravosa.com/)** → displays live climate data  
 
 ### Related Repositories
 
-- **[ESP32-Climate-Monitor](https://github.com/crav12345/ESP32-Climate-Monitor)** -> Firmware for the ESP32 device.
-- **[ChrisRavosa.com](https://github.com/crav12345/ChrisRavosa.com)** -> Code for [ChrisRavosa.com](https://www.chrisravosa.com/), where the dashboard lives.
+- **[ESP32-Climate-Monitor](https://github.com/crav12345/ESP32-Climate-Monitor)**
+- **[ChrisRavosa.com](https://github.com/crav12345/ChrisRavosa.com)**
