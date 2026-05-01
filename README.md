@@ -16,5 +16,5 @@ This project is part of a distributed system:
 
 ### Related Repositories
 
-- Firmware: https://github.com/crav12345/ESP32-Climate-Monitor
-- Website: https://github.com/crav12345/ChrisRavosa.com
+- Firmware for ESP32 device: crav12345/[ESP32-Climate-Monitor](https://github.com/crav12345/ESP32-Climate-Monitor)
+- Website containing the dashboard: crav12345/[ChrisRavosa.com](https://github.com/crav12345/ChrisRavosa.com)
