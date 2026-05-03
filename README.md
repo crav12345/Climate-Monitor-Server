@@ -18,3 +18,27 @@ This project is part of a distributed system:
 
 - **[crav12345/ESP32-Climate-Monitor](https://github.com/crav12345/ESP32-Climate-Monitor)**
 - **[crav12345/ChrisRavosa.com](https://github.com/crav12345/ChrisRavosa.com)**
+
+## GitHub Deployment
+
+This repo includes a GitHub Actions workflow at `.github/workflows/deploy.yml` that deploys the server to **Google Cloud Run** whenever code is pushed or merged to the `main` branch.
+
+Set these **GitHub repository variables** before using it:
+
+- `GCP_PROJECT_ID`: your Google Cloud project ID
+- `GCP_REGION`: the Cloud Run region, for example `us-east1`
+- `CLOUD_RUN_SERVICE`: the Cloud Run service name to deploy to
+
+Set these **GitHub repository secrets** for GitHub-to-Google authentication:
+
+- `GCP_WORKLOAD_IDENTITY_PROVIDER`: your workload identity provider resource name
+- `GCP_SERVICE_ACCOUNT_EMAIL`: the Google Cloud service account email used by the workflow
+
+The service account should have permissions for Cloud Run deployment and Cloud Build, typically including:
+
+- `Cloud Run Admin`
+- `Cloud Build Editor`
+- `Service Account User`
+- `Artifact Registry Writer`
+
+The workflow builds the app with `npm run build`, authenticates to Google Cloud, and deploys the repository source directly to Cloud Run.
