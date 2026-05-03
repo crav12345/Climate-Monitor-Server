@@ -1,0 +1,28 @@
+# Docker
+docker-compose.yml
+.dockerignore
+
+# Git / repo metadata
+.git
+.github
+.gitignore
+.gitmodules
+.gitattributes
+.husky
+
+# Dependencies / build output
+node_modules
+dist
+build
+coverage
+
+# Local files
+*.log
+logs
+.env
+.env.*
+.vscode
+.DS_Store
+
+# Docs
+README.md

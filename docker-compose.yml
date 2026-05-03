@@ -1,0 +1,18 @@
+services:
+  climate-monitor-api:
+    image: climate-monitor-api
+    container_name: climate-monitor-api
+    ports:
+      - "8000:8000"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+      args:
+        NODE_ENV: development
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      PORT: 8000
+      CONFIG: local
