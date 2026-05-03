@@ -31,8 +31,7 @@ Set these **GitHub repository variables** before using it:
 
 Set these **GitHub repository secrets** for GitHub-to-Google authentication:
 
-- `GCP_WORKLOAD_IDENTITY_PROVIDER`: your workload identity provider resource name
-- `GCP_SERVICE_ACCOUNT_EMAIL`: the Google Cloud service account email used by the workflow
+- `GCP_SA_KEY`: the JSON key for the Google Cloud service account used by the workflow
 
 The service account should have permissions for Cloud Run deployment and Cloud Build, typically including:
 
@@ -41,4 +40,4 @@ The service account should have permissions for Cloud Run deployment and Cloud B
 - `Service Account User`
 - `Artifact Registry Writer`
 
-The workflow builds the app with `npm run build`, authenticates to Google Cloud, and deploys the repository source directly to Cloud Run.
+The workflow builds the app with `npm run build`, authenticates to Google Cloud using the service account JSON key, and deploys the repository source directly to Cloud Run.
