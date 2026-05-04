@@ -13,7 +13,7 @@ export function setupWebSocket(server: Server) {
     ws.on("message", (message) => {
       const text = message.toString();
       console.log("Received:", text);
-      broadcast(`Broadcast: ${text}`);
+      broadcast(message);
     });
 
     ws.on("close", () => {
@@ -27,7 +27,7 @@ export function setupWebSocket(server: Server) {
   return wss;
 }
 
-export function broadcast(message: string) {
+export function broadcast(message: WebSocket.RawData) {
   for (const client of clients) {
     if (client.readyState === WebSocket.OPEN) {
       client.send(message);
