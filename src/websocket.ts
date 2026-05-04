@@ -3,6 +3,18 @@ import { Server } from "http";
 
 const clients = new Set<WebSocket>();
 
+function toBroadcastMessage(text: string) {
+  try {
+    JSON.parse(text);
+    return text;
+  } catch {
+    return JSON.stringify({
+      type: "message",
+      payload: text,
+    });
+  }
+}
+
 export function setupWebSocket(server: Server) {
   const wss = new WebSocketServer({ server });
 
@@ -13,7 +25,7 @@ export function setupWebSocket(server: Server) {
     ws.on("message", (message) => {
       const text = message.toString();
       console.log("Received:", text);
-      broadcast(message);
+      broadcast(toBroadcastMessage(text));
     });
 
     ws.on("close", () => {
@@ -21,13 +33,18 @@ export function setupWebSocket(server: Server) {
       clients.delete(ws);
     });
 
-    ws.send("Connected to WebSocket server");
+    ws.send(
+      JSON.stringify({
+        type: "connected",
+        payload: "Connected to WebSocket server",
+      }),
+    );
   });
 
   return wss;
 }
 
-export function broadcast(message: WebSocket.RawData) {
+export function broadcast(message: string) {
   for (const client of clients) {
     if (client.readyState === WebSocket.OPEN) {
       client.send(message);
