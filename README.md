@@ -8,7 +8,7 @@ This server ingests environmental data (temperature, humidity, etc.) from an emb
 
 ## System Overview
 
-This project is part of a distributed system:
+This project is part of a larger system:
 
 - **ESP32 Firmware** → collects climate data and sends it to this server
 - **Server (this repo)** → receives data and broadcasts updates  
